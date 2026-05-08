@@ -28,5 +28,5 @@
   </div>
 <% end %>
 
-<%= form_with model: [project, todo], method: :delete, id: :delete_todo do %>
+<%= form_with model: [project, todo], method: :delete, id: :delete_todo, data: { turbo_confirm: "Are you sure?" } do %>
 <% end %>
