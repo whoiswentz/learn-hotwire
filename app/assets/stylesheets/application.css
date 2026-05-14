@@ -36,3 +36,29 @@
   height: 1rem;
   width: 1rem;
 }
+
+html[data-turbo-visit-direction="forward"]::view-transition-old(root) {
+  animation: slide-out 0.25s;
+}
+
+html[data-turbo-visit-direction="forward"]::view-transition-new(root) {
+  animation: slide-in 0.25s;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
