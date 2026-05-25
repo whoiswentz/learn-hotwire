@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
   def index
-    @todos = Current.user.todos
+    @pagy, @todos = pagy(:keyset, Current.user.todos)
   end
 end
