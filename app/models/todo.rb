@@ -8,6 +8,7 @@ class Todo < ApplicationRecord
 
   acts_as_list scope: :project
   broadcasts_refreshes_to :project
+  broadcasts_refreshes_to :user
 
   validates :name, presence: true
 
