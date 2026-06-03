@@ -1,7 +1,9 @@
 <%= tag.div id: dom_id(todo), class: "flex" do %>
   <%= form_with model: [todo.project, todo] do |form| %>
-    <%= form.checkbox :completed %>
-    <%= form.submit "Save" %>
+    <%= form.checkbox :completed, data: {
+      controller: :autosubmit,
+      action: "change->autosubmit#submit"
+    } %>
   <% end %>
 
   <div class="flex items-center">
@@ -10,7 +12,6 @@
       <div class="hovercard">
         <%= image_tag todo.user.gravatar_url, class: "avatar" %>
         <%= turbo_frame_tag todo.user, :hovercard, src: project_user_path(todo.project, todo.user), loading: :lazy do %>
-          <!--        <div class="skeleton">Loading...</div>-->
         <% end %>
       </div>
     <% end %>
