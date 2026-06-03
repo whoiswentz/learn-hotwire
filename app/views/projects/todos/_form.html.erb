@@ -8,7 +8,10 @@
 
   <div>
     <%= form.label :description %>
-    <%= form.textarea :description %>
+    <%= form.textarea :description, data: {
+      controller: :autogrow,
+      action: "input->autogrow#resize"
+    } %>
     <word-count target="todo_description"></word-count>
   </div>
 
@@ -19,7 +22,7 @@
 
   <div>
     <%= form.label :user_id, "Assigned to" %>
-    <%= form.collection_select :user_id, project.users, :id, :name, {include_blank: "Nobody"} %>
+    <%= form.collection_select :user_id, project.users, :id, :name, { include_blank: "Nobody" } %>
   </div>
 
   <div>

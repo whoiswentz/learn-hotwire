@@ -54,6 +54,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem "hotwire-spark", "~> 0.1.13"
 end
 
 group :test do
@@ -65,3 +66,4 @@ end
 gem "acts_as_list", "~> 1.2"
 
 gem "pagy", "~> 43.5"
+
