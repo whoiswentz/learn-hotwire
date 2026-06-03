@@ -14,4 +14,3 @@ class Projects::UsersController < ApplicationController
     @user = @project.users.find(params.expect(:id))
   end
 end
-

@@ -20,6 +20,6 @@ class Projects::NamesController < ApplicationController
   end
 
   def name_params
-    params.expect(project: [:name])
+    params.expect(project: [ :name ])
   end
 end

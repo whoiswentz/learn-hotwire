@@ -66,4 +66,3 @@ end
 gem "acts_as_list", "~> 1.2"
 
 gem "pagy", "~> 43.5"
-
