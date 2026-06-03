@@ -17,7 +17,7 @@ class Projects::TodosController < ApplicationController
     else
       respond_to do |format|
         format.html { render :new, status: :unprocessable_entity }
-        format.turbo_stream { render :new }
+        format.turbo_stream { render :new, status: :unprocessable_entity }
       end
     end
   end
