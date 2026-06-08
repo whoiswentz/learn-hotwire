@@ -55,6 +55,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   gem "hotwire-spark", "~> 0.1.13"
+  gem "bullet", "~> 8.1"
 end
 
 group :test do

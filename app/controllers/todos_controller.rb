@@ -1,5 +1,6 @@
 class TodosController < ApplicationController
   def index
-    @pagy, @todos = pagy(:keyset, Current.user.todos)
+    todos = Current.user.todos.includes(:project)
+    @pagy, @todos = pagy(:keyset, todos)
   end
 end
