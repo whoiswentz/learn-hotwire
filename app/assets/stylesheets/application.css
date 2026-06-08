@@ -80,3 +80,13 @@ html[data-turbo-visit-direction="forward"]::view-transition-new(root) {
     }
   }
 }
+
+.hidden {
+  display: none;
+}
+
+nav li :where(a, [role=link]):not(:hover) {
+  &.active-tab {
+    text-decoration: underline;
+  }
+}
