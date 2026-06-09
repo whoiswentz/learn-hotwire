@@ -17,4 +17,12 @@ export default class extends Controller {
     this.tabTargets[newValue].classList.add("active-tab")
     this.panelTargets[newValue].classList.remove("hidden")
   }
+
+  previous() {
+    this.currentValue = Math.max(0, this.currentValue - 1)
+  }
+
+  next() {
+    this.currentValue = Math.min(this.currentValue + 1, this.tabTargets.length - 1)
+  }
 }

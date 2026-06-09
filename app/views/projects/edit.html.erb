@@ -1,6 +1,9 @@
 <h1>Edit Project</h1>
 
-<%= tag.div data: { controller: "tabs" } do %>
+<%= tag.div data: {
+  controller: "tabs",
+  action: "keydown.left->tabs#previous keydown.right->tabs#next",
+} do %>
   <nav>
     <ul>
       <li>
