@@ -4,6 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["tab", "panel"]
   static values = { current: Number }
+  static classes = ["activeTab", "inactiveTab", "panelHidden", "panelVisible"]
 
   change(event) {
     this.currentValue = event.params.index || Math.max(0, this.tabTargets.indexOf(event.target))
@@ -11,11 +12,11 @@ export default class extends Controller {
 
   currentValueChanged(newValue, oldValue) {
     if (oldValue !== undefined) {
-      this.tabTargets[oldValue].classList.remove("active-tab")
-      this.panelTargets[oldValue].classList.add("hidden")
+      this.tabTargets[oldValue].classList.remove(...this.activeTabClassesWithDefaults)
+      this.panelTargets[oldValue].classList.add(...this.panelHiddenClassesWithDefaults)
     }
-    this.tabTargets[newValue].classList.add("active-tab")
-    this.panelTargets[newValue].classList.remove("hidden")
+    this.tabTargets[newValue].classList.add(...this.activeTabClassesWithDefaults)
+    this.panelTargets[newValue].classList.remove(...this.panelHiddenClassesWithDefaults)
   }
 
   previous() {
@@ -24,5 +25,13 @@ export default class extends Controller {
 
   next() {
     this.currentValue = Math.min(this.currentValue + 1, this.tabTargets.length - 1)
+  }
+
+  get activeTabClassesWithDefaults() {
+    return this.activeTabClasses.length > 0 ? this.activeTabClasses : ["active"]
+  }
+
+  get panelHiddenClassesWithDefaults() {
+    return this.panelHiddenClasses.length > 0 ? this.panelHiddenClasses : ["hidden"]
   }
 }

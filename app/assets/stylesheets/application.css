@@ -85,8 +85,8 @@ html[data-turbo-visit-direction="forward"]::view-transition-new(root) {
   display: none;
 }
 
-nav li :where(a, [role=link]):not(:hover) {
-  &.active-tab {
+.tabs {
+  .active {
     text-decoration: underline;
   }
 }
