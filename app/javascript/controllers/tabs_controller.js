@@ -6,7 +6,7 @@ export default class extends Controller {
   static values = { current: Number }
 
   change(event) {
-    this.currentValue = this.tabTargets.indexOf(event.target)
+    this.currentValue = event.params.index || Math.max(0, this.tabTargets.indexOf(event.target))
   }
 
   currentValueChanged(newValue, oldValue) {

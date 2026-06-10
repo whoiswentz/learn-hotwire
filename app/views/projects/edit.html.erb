@@ -2,7 +2,7 @@
 
 <%= tag.div data: {
   controller: "tabs",
-  action: "keydown.left->tabs#previous keydown.right->tabs#next",
+  action: "keydown.left@window->tabs#previous keydown.right@window->tabs#next",
 } do %>
   <nav>
     <ul>
@@ -24,8 +24,11 @@
   <div>
     <%= tag.div class: "hidden", data: { tabs_target: "panel" } do %>
       <%= render "form", project: @project %>
+      <%= tag.a "Add a member", href: "#", data: {
+        action: "click->tabs#change:prevent",
+        tabs_index_param: 1
+      } %>
     <% end %>
-
 
     <%= tag.div class: "hidden", data: { tabs_target: "panel" } do %>
       <section>
